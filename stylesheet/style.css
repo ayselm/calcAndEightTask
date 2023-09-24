@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url(../fonts/Raleway-Regular.woff) format('woff');
+    font-weight: normal;
+}
+
+body{
+    font-family: 'Raleway';
+}
+
+.game-card {
+    height: 200vh;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #0b4255;
+    border-color: #0b4255;
+}

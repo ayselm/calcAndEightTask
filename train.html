@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script >
+        let n = prompt(' знание n','0');
+const numberTexts = [
+    'ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять',
+  ];
+  
+
+const numberTextsTens = [
+    'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят',
+    'восемьдесят', 'девяносто',
+]
+
+const numberTextsHundreads = [
+    'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот',
+    'семьсот', 'восемьсот', 'девятьсот'
+]
+
+const numberTexts1Ten = [
+    'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать',
+    'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать',
+]
+
+function totext(n) {
+    let ntext;
+
+    if( n.length ==1) {
+        ntext = numberTexts[n]
+    }
+    if( n.length ==2) {
+        console.log(n, n.length, '==2')
+        if (n >19) { /* n 34 */
+            console.log(n, n.length, '>19')
+            ntext = numberTextsTens[n[0] - 2]
+            
+            if (n[1]>0){
+                ntext += ' ' + numberTexts[n[1]]
+            }
+            
+            
+        }
+        else { // 10 11.  12.  13.  19
+            console.log(n, n.length, '<19')
+            ntext = numberTexts1Ten[n[1]]
+        }
+    }
+    if (n.length ==3) {    
+        console.log(n, n.length)
+        if ((999 >= n) && (n>99)) { // 100.  500 '546'[1]= 4
+            ntext = numberTextsHundreads[n[0] - 1]
+            console.log(ntext, n[0], numberTextsHundreads[n[0] - 1])
+            if (n[1]==1) {
+                ntext += ' ' + numberTexts1Ten[n[2]]
+            }
+            else {
+                ntext += ' ' + numberTextsTens[n[1] - 2]
+                ntext += ' ' + numberTexts[n[2]]
+            }
+        }
+    }
+    return ntext;
+}
+
+
+if (totext(n).length < 20) {
+    console.log(totext(n))
+}
+else console.log(n)
+    </script>
+</body>
+</html>
